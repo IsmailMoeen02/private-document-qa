@@ -1,0 +1,5 @@
+
+== fresh: 17 questions in 0.1s
+  answerable: 11/13 right  (right document first: 11/13; confident but wrong: 0; refused wrongly: 2)
+  not in the documents: 2/2 correctly refused
+  restricted to another group: 2/2 correctly refused;  restricted documents leaked: 0

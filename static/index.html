@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Private Q&A</title>
+<style>
+:root{--bg:#f6f3e8;--card:#fffdf6;--ink:#22302a;--mute:#66736b;--line:#e1e3d2;--forest:#2f5d46;--forest2:#244a37;--sage:#a9bfa5;--sagel:#e5ede0;--cream:#efe9d4;--clay:#b0704a;--clayl:#f6e9df;--warn:#8a5a1f;--r:12px;--sh:0 1px 2px rgba(34,48,42,.06),0 6px 18px rgba(34,48,42,.05)}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 "Inter","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3{margin:0;font-weight:650;letter-spacing:-.01em}
+.hide{display:none!important}
+/* login */
+#login{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(900px 500px at 15% 10%,var(--sagel),transparent 60%),var(--bg)}
+.lcard{width:100%;max-width:400px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px;box-shadow:var(--sh)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;color:var(--forest2)}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--forest);display:grid;place-items:center;color:#fff;font-style:normal;font-size:15px}
+.lcard h1{margin:22px 0 4px;font-size:22px}.lcard p{margin:0 0 18px;color:var(--mute)}
+label{display:block;font-size:12.5px;font-weight:600;color:var(--mute);margin:12px 0 5px}
+input[type=text],input[type=password],input[type=search],select,textarea{width:100%;padding:10px 12px;border:1px solid #cfd4be;border-radius:9px;background:#fff;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--forest);box-shadow:0 0 0 3px rgba(47,93,70,.15)}
+.btn{border:0;background:var(--forest);color:#fff;padding:10px 16px;border-radius:9px;font-weight:600;cursor:pointer}
+.btn:hover{background:var(--forest2)}.btn:disabled{opacity:.55;cursor:default}
+.btn.ghost{background:transparent;color:var(--forest2);border:1px solid #c3cbb0}.btn.ghost:hover{background:var(--sagel)}
+.btn.sm{padding:5px 10px;font-size:13px;border-radius:7px}.btn.danger{background:var(--clay)}
+.err{color:#9b3d22;font-size:13.5px;min-height:20px;margin-top:10px}
+.demo{margin-top:18px;border-top:1px dashed var(--line);padding-top:14px;font-size:13px;color:var(--mute)}
+.demo button{margin:6px 6px 0 0}
+/* shell */
+header{position:sticky;top:0;z-index:5;background:rgba(246,243,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:22px;padding:12px 26px}
+nav{display:flex;gap:4px;flex:1}
+nav button{background:none;border:0;padding:8px 13px;border-radius:8px;cursor:pointer;color:var(--mute);font-weight:600}
+nav button:hover{background:var(--sagel)}nav button.on{background:var(--sagel);color:var(--forest2)}
+.who{display:flex;align-items:center;gap:10px;font-size:13.5px}
+.chip{display:inline-block;padding:2px 9px;border-radius:99px;background:var(--sagel);color:var(--forest2);font-size:12px;font-weight:600;margin:0 4px 4px 0}
+.chip.warn{background:var(--clayl);color:var(--warn)}
+main{max-width:1180px;margin:0 auto;padding:26px}
+.grid{display:grid;grid-template-columns:270px 1fr;gap:26px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh)}
+.side{padding:18px;position:sticky;top:78px}
+.side h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--mute);margin-bottom:10px}
+.side li{list-style:none;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}.side ul{margin:0;padding:0}.side li:last-child{border:0}
+.side small{display:block;color:var(--mute);font-size:12px}
+.note{margin-top:14px;padding:11px 12px;background:var(--sagel);border-radius:9px;color:var(--forest2);font-size:13px}
+.askbox{padding:16px;display:flex;gap:10px}.askbox input{font-size:16px;padding:12px 14px}
+.sugg{margin:12px 2px 4px;display:flex;flex-wrap:wrap;gap:8px}
+.sugg button{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 13px;cursor:pointer;color:var(--forest2);font-size:13.5px}
+.sugg button:hover{background:var(--sagel)}
+.thread{margin-top:20px;display:flex;flex-direction:column;gap:20px}
+.q{font-weight:650;font-size:15px;color:var(--mute);margin:0 4px 8px}
+.ans{padding:20px 22px;border-left:5px solid var(--forest)}
+.ans.no{border-left-color:var(--clay);background:#fffaf4}
+.ans .big{font-size:18px;line-height:1.5;margin:0 0 4px;font-weight:550}
+.ans .sub{font-size:13px;color:var(--mute);margin:6px 0 0}
+.src{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+.src h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--mute)}
+.cite{background:#faf8ee;border:1px solid var(--line);border-radius:10px;margin-bottom:9px}
+.cite summary{cursor:pointer;padding:10px 13px;display:flex;gap:10px;align-items:center;list-style:none;font-size:14px}
+.cite summary::-webkit-details-marker{display:none}
+.cite summary b{color:var(--forest2)}.cite summary .m{margin-left:auto;font-size:12px;color:var(--mute)}
+.cite .pass{padding:2px 14px 14px;font-size:14px;color:#37453d}
+mark{background:#dfe9a8;padding:1px 2px;border-radius:3px;color:inherit}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:20px}
+.tile{padding:16px 18px}.tile b{display:block;font-size:28px;letter-spacing:-.02em;color:var(--forest2)}.tile span{color:var(--mute);font-size:13px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:22px}
+.pad{padding:18px 20px}.pad h3{font-size:15px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);padding:10px 12px;border-bottom:1px solid var(--line);background:#faf8ee}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}tr:last-child td{border:0}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex:0 0 auto}.grow{flex:1 1 200px!important}
+.bar{height:8px;border-radius:9px;background:var(--sagel);overflow:hidden;min-width:60px}.bar i{display:block;height:100%;background:var(--forest)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--forest2);color:#fff;padding:10px 18px;border-radius:10px;box-shadow:var(--sh);z-index:20}
+.toast.bad{background:#8e3b21}
+.empty{padding:28px;text-align:center;color:var(--mute)}
+.title{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:16px;gap:12px;flex-wrap:wrap}.title p{margin:3px 0 0;color:var(--mute)}
+@media(max-width:860px){.grid,.two{grid-template-columns:1fr}.side{position:static;order:2}.grid>section{order:1}header{flex-wrap:wrap;gap:8px;padding:10px 16px}main{padding:16px}.tbl{overflow-x:auto}}
+</style></head>
+<body>
+<section id="login"><div class="lcard">
+  <div class="logo"><i>&#9679;</i><span id="coL">Private Q&amp;A</span></div>
+  <h1>Ask your documents</h1><p>Answers come only from documents you are allowed to read, with the source shown.</p>
+  <form id="lf"><label for="u">Username</label><input id="u" type="text" autocomplete="username" autofocus>
+  <label for="p">Password</label><input id="p" type="password" autocomplete="current-password">
+  <div class="err" id="le"></div><button class="btn" style="width:100%">Sign in</button></form>
+  <div class="demo">Demo accounts (password <code>welcome123</code>)<br>
+  <button class="btn ghost sm" data-d="ayesha">Ayesha, staff</button><button class="btn ghost sm" data-d="omar">Omar, HR</button><button class="btn ghost sm" data-d="sara">Sara, finance</button><button class="btn ghost sm" data-d="imran">Imran, legal</button><button class="btn ghost sm" data-d="admin">Admin</button></div>
+</div></section>
+
+<div id="app" class="hide">
+<header><div class="logo"><i>&#9679;</i><span id="co">Private Q&amp;A</span></div>
+<nav id="nav"></nav>
+<div class="who"><span id="me"></span><button class="btn ghost sm" id="out">Sign out</button></div></header>
+<main id="view"></main>
+</div>
+<div id="toast" class="toast hide"></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let TOKEN=null,ME=null,TAB="ask",THREAD=[];
+try{TOKEN=sessionStorage.getItem("pq")}catch(e){}
+function toast(m,bad){const t=$("#toast");t.textContent=m;t.className="toast"+(bad?" bad":"");clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.add("hide"),3200)}
+async function api(path,opt={}){
+  const h={...(opt.headers||{})};if(TOKEN)h.authorization="Bearer "+TOKEN;
+  if(opt.json!==undefined){h["content-type"]="application/json";opt.body=JSON.stringify(opt.json)}
+  const r=await fetch(path,{method:opt.method||"GET",headers:h,body:opt.body});
+  if(r.status===401&&TOKEN&&!path.includes("login")){signout();throw new Error("Signed out")}
+  if(opt.blob&&r.ok)return r.blob();
+  let d=null;try{d=await r.json()}catch(e){}
+  if(!r.ok){const m=d&&d.detail?(typeof d.detail==="string"?d.detail:"Check the form"):"Something went wrong";throw new Error(m)}
+  return d}
+function signout(){TOKEN=ME=null;THREAD=[];try{sessionStorage.removeItem("pq")}catch(e){}$("#app").classList.add("hide");$("#login").classList.remove("hide")}
+$("#out").onclick=signout;
+async function signin(u,p){
+  const d=await api("/api/login",{method:"POST",json:{username:u,password:p}});
+  TOKEN=d.token;ME=d.user;try{sessionStorage.setItem("pq",TOKEN)}catch(e){}boot()}
+$("#lf").onsubmit=async e=>{e.preventDefault();$("#le").textContent="";try{await signin($("#u").value,$("#p").value)}catch(x){$("#le").textContent=x.message}};
+document.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{const u=b.dataset.d;$("#u").value=u;$("#p").value=u==="admin"?"demo":"welcome123";$("#lf").requestSubmit()});
+async function boot(){
+  if(!ME)ME=await api("/api/me");
+  $("#login").classList.add("hide");$("#app").classList.remove("hide");
+  $("#me").innerHTML=`<b>${esc(ME.name)}</b> `+(ME.groups.length?ME.groups.map(g=>`<span class="chip">${esc(g)}</span>`).join(""):`<span class="chip">everyone</span>`);
+  const tabs=[["ask","Ask"]];if(ME.admin)tabs.push(["lib","Library"],["log","Questions"],["usr","Users and access"],["glo","Glossary"]);
+  if(!tabs.some(t=>t[0]===TAB))TAB="ask";
+  $("#nav").innerHTML=tabs.map(([k,l])=>`<button data-k="${k}" class="${k===TAB?"on":""}">${l}</button>`).join("");
+  $("#nav").querySelectorAll("button").forEach(b=>b.onclick=()=>{TAB=b.dataset.k;boot()});
+  render()}
+async function render(){const v=$("#view");v.innerHTML="";try{await({ask:vAsk,lib:vLib,log:vLog,usr:vUsr,glo:vGlo}[TAB])(v)}catch(e){if(e.message!=="Signed out")v.innerHTML=`<div class="panel empty">${esc(e.message)}</div>`}}
+
+/* ---------- ask ---------- */
+const SUG=["How many days of annual leave do I get?","What is the hotel limit in London?","How long are invoices kept?","Who is the CEO's favourite colour?"];
+function hl(text,quotes){let h=esc(text);for(const q of quotes||[]){const e=esc(q);if(e&&h.includes(e))h=h.replace(e,"<mark>"+e+"</mark>")}return h}
+function card(t){
+  if(t.pending)return`<div><p class="q">${esc(t.q)}</p><div class="panel ans"><span class="sub">Searching your documents...</span></div></div>`;
+  if(t.err)return`<div><p class="q">${esc(t.q)}</p><div class="panel ans no"><p class="big">${esc(t.err)}</p></div></div>`;
+  const r=t.r;
+  if(r.outcome!=="answered")return`<div><p class="q">${esc(t.q)}</p><div class="panel ans no"><p class="big">${esc(r.answer)}</p><p class="sub">Nothing in the documents you can read answers this, so no answer is guessed. The question is logged so an administrator can see what is missing.</p></div></div>`;
+  return`<div><p class="q">${esc(t.q)}</p><div class="panel ans"><p class="big">${esc(r.answer)}</p>
+  <div class="src"><h4>Where this comes from</h4>${r.citations.map((c,i)=>`<details class="cite" ${i===0?"open":""}><summary><b>${esc(c.title)}</b><span>${esc(c.heading)}${c.page?`, page ${c.page}`:""}</span><span class="m">${c.quotes.length?"answer is here":"related"}</span></summary><div class="pass">${hl(c.passage,c.quotes)}</div></details>`).join("")}</div></div></div>`}
+async function vAsk(v){
+  const docs=await api("/api/docs");
+  v.innerHTML=`<div class="grid"><aside class="panel side"><h3>Documents you can read (${docs.length})</h3><ul>${docs.map(d=>`<li>${esc(d.title)}<small>${esc(d.kind.toUpperCase())}${d.pages?`, ${d.pages} page${d.pages>1?"s":""}`:""}</small></li>`).join("")}</ul><div class="note">Documents outside your access are not searched at all, so they can never appear in an answer.</div></aside>
+  <section><form class="panel askbox" id="af"><input id="aq" type="search" maxlength="500" placeholder="Ask a question about your company documents" autofocus><button class="btn" id="ab">Ask</button></form>
+  <div class="sugg">${SUG.map(s=>`<button type="button">${esc(s)}</button>`).join("")}</div><div class="thread" id="th"></div></section></div>`;
+  const draw=()=>{$("#th").innerHTML=[...THREAD].reverse().map(card).join("")};draw();
+  async function go(q){q=q.trim();if(q.length<2)return;const t={q,pending:true};THREAD.push(t);$("#aq").value="";draw();
+    try{t.r=await api("/api/ask",{method:"POST",json:{question:q}});}catch(e){t.err=e.message}t.pending=false;draw()}
+  $("#af").onsubmit=e=>{e.preventDefault();go($("#aq").value)};
+  v.querySelectorAll(".sugg button").forEach(b=>b.onclick=()=>go(b.textContent))}
+
+/* ---------- library ---------- */
+const gchips=g=>g.map(x=>`<span class="chip ${x==="everyone"?"":"warn"}">${esc(x)}</span>`).join("");
+async function vLib(v){
+  const docs=await api("/api/admin/docs");
+  v.innerHTML=`<div class="title"><div><h2>Library</h2><p>Every document has the groups that may read it. Restricted text is left out of the search for everyone else.</p></div></div>
+  <form class="panel pad" id="uf" style="margin-bottom:20px"><h3>Add a document</h3><div class="row"><input class="grow" type="file" id="uff" accept=".pdf,.docx,.txt"><input class="grow" type="text" id="ufg" value="everyone" aria-label="Groups" placeholder="Groups, comma separated"><button class="btn" id="ufb">Upload</button></div><p class="sub" style="color:var(--mute);font-size:13px;margin:8px 0 0">PDF, Word or text, up to 10 MB. Groups: everyone, hr, finance, legal, or your own.</p></form>
+  <div class="panel tbl"><table><thead><tr><th>Document</th><th>Type</th><th>Passages</th><th>Who can read it</th><th></th></tr></thead><tbody>${docs.map(d=>`<tr data-id="${d.id}"><td><b>${esc(d.title)}</b><br><small style="color:var(--mute)">${esc(d.filename)}</small></td><td>${esc(d.kind.toUpperCase())}${d.pages?`, ${d.pages}p`:""}</td><td>${d.chunks}</td><td><input type="text" class="gi" value="${esc(d.groups.join(", "))}" aria-label="Groups for ${esc(d.title)}" style="max-width:190px"></td><td class="row"><button class="btn ghost sm sv">Save</button><button class="btn ghost sm dl">Remove</button></td></tr>`).join("")}</tbody></table></div>`;
+  $("#uf").onsubmit=async e=>{e.preventDefault();const f=$("#uff").files[0];if(!f)return toast("Choose a file first",1);const fd=new FormData();fd.append("file",f);fd.append("groups",$("#ufg").value);
+    $("#ufb").disabled=true;try{await api("/api/admin/docs",{method:"POST",body:fd});toast("Added and searchable");vLib2()}catch(x){toast(x.message,1);$("#ufb").disabled=false}};
+  v.querySelectorAll("tr[data-id]").forEach(tr=>{const id=tr.dataset.id;
+    tr.querySelector(".sv").onclick=async()=>{try{const r=await api("/api/admin/docs/"+id,{method:"PATCH",json:{groups:tr.querySelector(".gi").value.split(",")}});toast("Access now: "+r.groups.join(", "))}catch(x){toast(x.message,1)}};
+    const dl=tr.querySelector(".dl");dl.onclick=async()=>{if(!dl.dataset.s){dl.dataset.s=1;dl.textContent="Sure?";dl.classList.add("danger");dl.classList.remove("ghost");return}
+      try{await api("/api/admin/docs/"+id,{method:"DELETE"});toast("Removed");vLib2()}catch(x){toast(x.message,1)}}})}
+const vLib2=()=>render();
+
+/* ---------- questions ---------- */
+async function vLog(v){
+  const s=await api("/api/admin/stats");
+  v.innerHTML=`<div class="title"><div><h2>Questions</h2><p>What people asked, whether the documents could answer, and where they cannot.</p></div><button class="btn ghost sm" id="csv">Download CSV</button></div>
+  <div class="tiles">${[["Questions",s.questions],["Answered",s.answered],["No answer found",s.refused],["Answer rate",s.answer_rate+"%"],["Documents",s.docs]].map(([l,n])=>`<div class="panel tile"><b>${n}</b><span>${l}</span></div>`).join("")}</div>
+  <div class="two"><div class="panel pad"><h3>Questions the documents could not answer</h3>${s.gaps.length?`<table><tbody>${s.gaps.map(g=>`<tr><td>${esc(g.question)}</td><td style="text-align:right;color:var(--mute)">${g.times}x</td></tr>`).join("")}</tbody></table>`:`<p class="empty">None yet.</p>`}<p style="color:var(--mute);font-size:13px;margin:10px 0 0">Add the missing document, or add a glossary term if staff are using different words.</p></div>
+  <div class="panel pad"><h3>Most used documents</h3>${s.top_docs.length?s.top_docs.map(d=>`<div style="margin-bottom:11px"><div class="row" style="justify-content:space-between"><span>${esc(d.title)}</span><span style="color:var(--mute)">${d.times}</span></div><div class="bar"><i style="width:${Math.round(100*d.times/s.top_docs[0].times)}%"></i></div></div>`).join(""):`<p class="empty">No data yet.</p>`}</div></div>
+  <div class="row" style="margin-bottom:12px"><select id="fo" style="width:170px"><option value="">All outcomes</option><option value="answered">Answered</option><option value="refused">No answer found</option></select><input class="grow" id="fq" type="search" placeholder="Search questions or people"></div>
+  <div class="panel tbl"><table><thead><tr><th>Time</th><th>Who</th><th>Question</th><th>Result</th><th>Top document</th></tr></thead><tbody id="lb"></tbody></table></div>`;
+  const load=async()=>{const rows=await api("/api/admin/audit?outcome="+encodeURIComponent($("#fo").value)+"&q="+encodeURIComponent($("#fq").value));
+    $("#lb").innerHTML=rows.length?rows.map(r=>`<tr><td style="white-space:nowrap;color:var(--mute)">${esc(r.ts.replace("T"," ").slice(5,16))}</td><td>${esc(r.username)}</td><td>${esc(r.question)}</td><td><span class="chip ${r.outcome==="refused"?"warn":""}">${r.outcome==="refused"?"no answer":"answered"}</span></td><td>${esc(r.doc_title||"")}</td></tr>`).join(""):`<tr><td colspan="5" class="empty">Nothing matches.</td></tr>`};
+  $("#fo").onchange=load;let h;$("#fq").oninput=()=>{clearTimeout(h);h=setTimeout(load,250)};await load();
+  $("#csv").onclick=async()=>{try{const b=await api("/api/admin/audit.csv",{blob:true});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="question-log.csv";a.click()}catch(x){toast(x.message,1)}}}
+
+/* ---------- users ---------- */
+async function vUsr(v){
+  const us=await api("/api/admin/users");
+  v.innerHTML=`<div class="title"><div><h2>Users and access</h2><p>Groups decide which documents a person can read. Everyone is always in "everyone".</p></div></div>
+  <form class="panel pad" id="nf" style="margin-bottom:20px"><h3>Add a person</h3><div class="row"><input class="grow" id="nu" type="text" placeholder="Username" aria-label="Username"><input class="grow" id="nn" type="text" placeholder="Full name" aria-label="Full name"><input class="grow" id="ng" type="text" placeholder="Groups (hr, finance, legal)" aria-label="Groups"><input class="grow" id="np" type="password" placeholder="Password, 8+ characters" aria-label="Password" autocomplete="new-password"><button class="btn">Add</button></div></form>
+  <div class="panel tbl"><table><thead><tr><th>Person</th><th>Groups</th><th>Status</th><th></th></tr></thead><tbody>${us.map(u=>`<tr data-id="${u.id}"><td><b>${esc(u.name)}</b><br><small style="color:var(--mute)">${esc(u.username)}${u.admin?" , administrator":""}</small></td><td>${u.admin?`<span class="chip">all admin tools</span>`:`<input class="gi" type="text" value="${esc(u.groups.join(", "))}" aria-label="Groups for ${esc(u.name)}" style="max-width:200px">`}</td><td><span class="chip ${u.active?"":"warn"}">${u.active?"active":"switched off"}</span></td><td class="row">${u.admin?"":`<button class="btn ghost sm sv">Save groups</button><button class="btn ghost sm tg">${u.active?"Switch off":"Switch on"}</button>`}</td></tr>`).join("")}</tbody></table></div>`;
+  $("#nf").onsubmit=async e=>{e.preventDefault();try{await api("/api/admin/users",{method:"POST",json:{username:$("#nu").value,name:$("#nn").value,password:$("#np").value,groups:$("#ng").value.split(",").map(x=>x.trim()).filter(Boolean)}});toast("Person added");render()}catch(x){toast(x.message,1)}};
+  v.querySelectorAll("tr[data-id]").forEach(tr=>{const id=tr.dataset.id,u=us.find(x=>x.id==id),sv=tr.querySelector(".sv");if(!sv)return;
+    sv.onclick=async()=>{try{const r=await api("/api/admin/users/"+id,{method:"PATCH",json:{groups:tr.querySelector(".gi").value.split(",").map(x=>x.trim()).filter(Boolean)}});toast("Groups: "+(r.groups.join(", ")||"everyone only"))}catch(x){toast(x.message,1)}};
+    tr.querySelector(".tg").onclick=async()=>{try{await api("/api/admin/users/"+id,{method:"PATCH",json:{active:!u.active}});render()}catch(x){toast(x.message,1)}}})}
+
+/* ---------- glossary ---------- */
+async function vGlo(v){
+  const g=await api("/api/admin/glossary");
+  v.innerHTML=`<div class="title"><div><h2>Glossary</h2><p>Teach the search your company's words. One line per entry: what people say, an equals sign, the words the documents use.</p></div></div>
+  <div class="panel pad"><textarea id="gt" rows="14" spellcheck="false" style="font-family:ui-monospace,Menlo,monospace;font-size:13.5px">${esc(Object.entries(g).map(([k,m])=>k+" = "+m).join("\n"))}</textarea><div class="row" style="margin-top:12px"><button class="btn" id="gs">Save glossary</button><span style="color:var(--mute);font-size:13px">Example: <code>holiday = annual leave</code>. Applied to every search straight away.</span></div></div>`;
+  $("#gs").onclick=async()=>{const terms={};$("#gt").value.split("\n").forEach(l=>{const i=l.indexOf("=");if(i>0)terms[l.slice(0,i).trim()]=l.slice(i+1).trim()});
+    try{const r=await api("/api/admin/glossary",{method:"PUT",json:{terms}});toast(r.terms+" entries saved")}catch(x){toast(x.message,1)}}}
+
+(async()=>{ if(TOKEN){try{ME=await api("/api/me");await boot()}catch(e){signout()}} })();
+</script></body></html>

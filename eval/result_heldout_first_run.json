@@ -1,0 +1,204 @@
+{
+ "name": "heldout",
+ "n": 27,
+ "answer_right": 10,
+ "answer_n": 18,
+ "hit1": 12,
+ "wrong_answer": 2,
+ "refuse_right": 4,
+ "refuse_n": 4,
+ "restricted_right": 5,
+ "restricted_n": 5,
+ "leaks": 0,
+ "rows": [
+  [
+   "What's the annual holiday entitlement for full-time staff?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "If I'm off sick, when do I have to tell my manager?",
+   "ayesha",
+   "answer",
+   "answered",
+   false
+  ],
+  [
+   "How much time off does a new father get?",
+   "ayesha",
+   "answer",
+   "refused",
+   false
+  ],
+  [
+   "Is there a money allowance for setting up my home desk?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "What's the notice period once probation is over?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "Do I need to change my password regularly?",
+   "ayesha",
+   "answer",
+   "refused",
+   false
+  ],
+  [
+   "Can I plug a USB stick into my work computer?",
+   "ayesha",
+   "answer",
+   "refused",
+   false
+  ],
+  [
+   "What should I do with a suspicious email?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "For how many years must we hold employment records after someone leaves?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How often do we have fire drills?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "What's the most I can claim for dinner on a trip abroad?",
+   "ayesha",
+   "answer",
+   "refused",
+   false
+  ],
+  [
+   "Which cabin class do I book for a 7 hour flight?",
+   "ayesha",
+   "answer",
+   "answered",
+   false
+  ],
+  [
+   "Who needs to sign off a purchase over 10,000?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "Where do I collect my laptop on my first day?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "What interest do we charge on overdue invoices?",
+   "imran",
+   "answer",
+   "refused",
+   false
+  ],
+  [
+   "How soon must the other side return our confidential papers after a request?",
+   "imran",
+   "answer",
+   "refused",
+   false
+  ],
+  [
+   "When does a pay rise take effect after the April review?",
+   "omar",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How many new hires does the plan for 2027 allow?",
+   "sara",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "Is there free parking for employees?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "How much is the pension contribution?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "What are the company's opening hours?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "Which cloud provider do we use?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "What is the bonus cap for an individual?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "How long do I have to appeal a disciplinary outcome?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "What is the capital expenditure ceiling?",
+   "omar",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "Which salary band covers 70,000?",
+   "sara",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "What is our liability limit under the customer agreement?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ]
+ ]
+}

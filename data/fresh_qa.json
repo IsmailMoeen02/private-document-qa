@@ -1,0 +1,143 @@
+[
+ {
+  "q": "How long is the lunch break?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "45 minute"
+  ]
+ },
+ {
+  "q": "Do core hours still apply when I work remotely?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "Core hours still apply"
+  ]
+ },
+ {
+  "q": "Can I use text message codes for two-step login?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "it-security-policy",
+  "contains": [
+   "SMS codes are not permitted"
+  ]
+ },
+ {
+  "q": "How long are system backups retained?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "data-retention-policy",
+  "contains": [
+   "90 days"
+  ]
+ },
+ {
+  "q": "How long do you keep applications from unsuccessful candidates?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "data-retention-policy",
+  "contains": [
+   "6 months"
+  ]
+ },
+ {
+  "q": "Will I be reimbursed for parking and tolls?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "travel-expense-policy",
+  "contains": [
+   "with a receipt"
+  ]
+ },
+ {
+  "q": "How often is the preferred supplier list reviewed?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "procurement-policy",
+  "contains": [
+   "once a year"
+  ]
+ },
+ {
+  "q": "Who wears a green lanyard?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "office-safety",
+  "contains": [
+   "First aiders"
+  ]
+ },
+ {
+  "q": "How long do I have to complete the security awareness training?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "onboarding-guide",
+  "contains": [
+   "7 days"
+  ]
+ },
+ {
+  "q": "How long after an accident do I have to report it?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "office-safety",
+  "contains": [
+   "24 hours"
+  ]
+ },
+ {
+  "q": "How long does the confidentiality duty last after the customer agreement ends?",
+  "user": "imran",
+  "kind": "answer",
+  "doc": "customer-service-agreement",
+  "contains": [
+   "5 years"
+  ]
+ },
+ {
+  "q": "What notice is needed to end the service agreement?",
+  "user": "imran",
+  "kind": "answer",
+  "doc": "customer-service-agreement",
+  "contains": [
+   "60 days"
+  ]
+ },
+ {
+  "q": "How many working days does a manager have to finish a disciplinary investigation?",
+  "user": "omar",
+  "kind": "answer",
+  "doc": "disciplinary-procedure",
+  "contains": [
+   "15 working days"
+  ]
+ },
+ {
+  "q": "Does the company provide a company car?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "not in the documents"
+ },
+ {
+  "q": "What is the policy on pets in the office?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "not in the documents"
+ },
+ {
+  "q": "What are the salary bands?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "restricted to HR"
+ },
+ {
+  "q": "What is the term of the mutual NDA?",
+  "user": "sara",
+  "kind": "refuse",
+  "why": "restricted to legal"
+ }
+]

@@ -1,0 +1,311 @@
+{
+ "name": "Staff questions from chat: Private Q&A",
+ "nodes": [
+  {
+   "id": "23ccb19f-9068-57d9-b21e-94490b561177",
+   "name": "Question from chat (test inbox)",
+   "type": "n8n-nodes-base.webhook",
+   "typeVersion": 2,
+   "position": [
+    0,
+    140
+   ],
+   "parameters": {
+    "httpMethod": "POST",
+    "path": "ask-documents",
+    "responseMode": "responseNode",
+    "options": {}
+   },
+   "webhookId": "a1b2c3d4-2222-4333-8444-555566667788"
+  },
+  {
+   "id": "3a2a5c34-5e6c-5ac9-ac71-66413bea80c0",
+   "name": "New chat message (production)",
+   "type": "n8n-nodes-base.slackTrigger",
+   "typeVersion": 1,
+   "position": [
+    0,
+    360
+   ],
+   "parameters": {
+    "trigger": [
+     "message"
+    ],
+    "channelId": {
+     "__rl": true,
+     "mode": "list",
+     "value": ""
+    },
+    "options": {}
+   },
+   "disabled": true,
+   "notes": "Switch this on, pick the Slack or Teams account and channel. The message text becomes the question and the sender's name picks whose documents are searched."
+  },
+  {
+   "id": "3a45cf06-4544-54ed-ae63-6d52f7443907",
+   "name": "Prepare question",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    260,
+    240
+   ],
+   "parameters": {
+    "jsCode": "// The test inbox sends {user, question}. A chat trigger sends the sender and the message text. Both become the same request.\nconst b = $input.first().json.body && typeof $input.first().json.body === 'object' ? $input.first().json.body : $input.first().json;\nconst user = String(b.user || b.username || b.sender || '').trim().toLowerCase();\nconst question = String(b.question || b.text || b.message || '').trim().slice(0, 500);\nif (!user) throw new Error('No sender on this message');\nif (question.length < 2) throw new Error('No question on this message');\nreturn [{ json: { user, question } }];"
+   }
+  },
+  {
+   "id": "a04ea68c-b7bb-5a5f-9d84-8141bef808c5",
+   "name": "Ask the documents",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    520,
+    240
+   ],
+   "parameters": {
+    "method": "POST",
+    "url": "http://127.0.0.1:8796/api/inbound/ask",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "X-Inbound-Key",
+       "value": "demo-inbound-key"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json) }}",
+    "options": {
+     "timeout": 60000
+    }
+   },
+   "notes": "Asks as that person, so the answer can only come from documents they may read."
+  },
+  {
+   "id": "3a69d161-6808-5a15-bc6f-063377b851e1",
+   "name": "Found an answer?",
+   "type": "n8n-nodes-base.switch",
+   "typeVersion": 3.2,
+   "position": [
+    780,
+    220
+   ],
+   "parameters": {
+    "rules": {
+     "values": [
+      {
+       "conditions": {
+        "options": {
+         "caseSensitive": true,
+         "typeValidation": "loose",
+         "version": 2
+        },
+        "combinator": "and",
+        "conditions": [
+         {
+          "leftValue": "={{ $json.outcome }}",
+          "rightValue": "answered",
+          "operator": {
+           "type": "string",
+           "operation": "equals"
+          }
+         }
+        ]
+       },
+       "renameOutput": true,
+       "outputKey": "Answered"
+      }
+     ]
+    },
+    "options": {
+     "fallbackOutput": "extra",
+     "renameFallbackOutput": "No answer"
+    }
+   }
+  },
+  {
+   "id": "d49c5d8b-9db5-5760-919c-c8c5197efe66",
+   "name": "Write reply with source",
+   "type": "n8n-nodes-base.set",
+   "typeVersion": 3.4,
+   "position": [
+    1040,
+    120
+   ],
+   "parameters": {
+    "assignments": {
+     "assignments": [
+      {
+       "id": "a1",
+       "name": "text",
+       "type": "string",
+       "value": "={{ $json.answer + '\\n\\nSource: ' + $json.citations[0].title + ', ' + $json.citations[0].heading + ($json.citations[0].page ? ', page ' + $json.citations[0].page : '') }}"
+      }
+     ]
+    },
+    "options": {}
+   }
+  },
+  {
+   "id": "ced622ec-f33a-5849-bd21-634680929849",
+   "name": "Write no-answer reply",
+   "type": "n8n-nodes-base.set",
+   "typeVersion": 3.4,
+   "position": [
+    1040,
+    340
+   ],
+   "parameters": {
+    "assignments": {
+     "assignments": [
+      {
+       "id": "a2",
+       "name": "text",
+       "type": "string",
+       "value": "={{ 'I could not find this in the documents you have access to. It has been logged so the document owner can see what is missing.' }}"
+      }
+     ]
+    },
+    "options": {}
+   }
+  },
+  {
+   "id": "c55c7c38-8204-508f-9695-2b4f7958b63e",
+   "name": "Post to chat",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    1300,
+    240
+   ],
+   "parameters": {
+    "method": "POST",
+    "url": "http://127.0.0.1:8799/",
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ text: $json.text }) }}",
+    "options": {}
+   },
+   "notes": "Points at a local stand-in for a Slack incoming webhook. Replace the URL with a real one."
+  },
+  {
+   "id": "62c2ed9e-f9bd-5050-a98e-7158e3817249",
+   "name": "Reply with result",
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.1,
+   "position": [
+    1560,
+    240
+   ],
+   "parameters": {
+    "respondWith": "json",
+    "responseBody": "={{ JSON.stringify($('Ask the documents').first().json) }}",
+    "options": {}
+   },
+   "executeOnce": true
+  }
+ ],
+ "connections": {
+  "Question from chat (test inbox)": {
+   "main": [
+    [
+     {
+      "node": "Prepare question",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "New chat message (production)": {
+   "main": [
+    [
+     {
+      "node": "Prepare question",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Prepare question": {
+   "main": [
+    [
+     {
+      "node": "Ask the documents",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Ask the documents": {
+   "main": [
+    [
+     {
+      "node": "Found an answer?",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Found an answer?": {
+   "main": [
+    [
+     {
+      "node": "Write reply with source",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "Write no-answer reply",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Write reply with source": {
+   "main": [
+    [
+     {
+      "node": "Post to chat",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Write no-answer reply": {
+   "main": [
+    [
+     {
+      "node": "Post to chat",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Post to chat": {
+   "main": [
+    [
+     {
+      "node": "Reply with result",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "executionOrder": "v1"
+ }
+}

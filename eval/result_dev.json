@@ -1,0 +1,204 @@
+{
+ "name": "dev",
+ "n": 27,
+ "answer_right": 20,
+ "answer_n": 20,
+ "hit1": 20,
+ "wrong_answer": 0,
+ "refuse_right": 4,
+ "refuse_n": 4,
+ "restricted_right": 3,
+ "restricted_n": 3,
+ "leaks": 0,
+ "rows": [
+  [
+   "How many days of annual leave do I get?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "Can I carry unused leave into next year?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "When do I need a doctor's note for sick leave?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How long is parental leave for birth parents?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How many days a week can I work from home?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How long must my password be?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "Is multi-factor authentication required for email?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How soon must I report a lost laptop?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How long do we keep invoices?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How long is CCTV footage kept?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "What is the hotel limit in London?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "What is the mileage rate for my own car?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How many quotes do I need for a 5,000 purchase?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "Where is the fire assembly point?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "When is salary paid?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How many days do I have to submit an expense claim?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "What is the liability cap in our customer agreement?",
+   "imran",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How long does an NDA last?",
+   "imran",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "What is the salary range for Band C?",
+   "omar",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "What is the marketing budget for 2027?",
+   "sara",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "What is the dress code?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "Who is the chief executive?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "Does the company offer a pension?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "What is the Wi-Fi password?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "What is the salary range for Band C?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "What is the marketing budget for 2027?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "How long does a disciplinary investigation take?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ]
+ ]
+}

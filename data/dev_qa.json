@@ -1,0 +1,224 @@
+[
+ {
+  "q": "How many days of annual leave do I get?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "22 working days"
+  ]
+ },
+ {
+  "q": "Can I carry unused leave into next year?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "5 unused days"
+  ]
+ },
+ {
+  "q": "When do I need a doctor's note for sick leave?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "3 consecutive days"
+  ]
+ },
+ {
+  "q": "How long is parental leave for birth parents?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "14 weeks"
+  ]
+ },
+ {
+  "q": "How many days a week can I work from home?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "2 days per week"
+  ]
+ },
+ {
+  "q": "How long must my password be?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "it-security-policy",
+  "contains": [
+   "14 characters"
+  ]
+ },
+ {
+  "q": "Is multi-factor authentication required for email?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "it-security-policy",
+  "contains": [
+   "mandatory"
+  ]
+ },
+ {
+  "q": "How soon must I report a lost laptop?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "it-security-policy",
+  "contains": [
+   "1 hour"
+  ]
+ },
+ {
+  "q": "How long do we keep invoices?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "data-retention-policy",
+  "contains": [
+   "7 years"
+  ]
+ },
+ {
+  "q": "How long is CCTV footage kept?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "data-retention-policy",
+  "contains": [
+   "30 days"
+  ]
+ },
+ {
+  "q": "What is the hotel limit in London?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "travel-expense-policy",
+  "contains": [
+   "190 per night"
+  ]
+ },
+ {
+  "q": "What is the mileage rate for my own car?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "travel-expense-policy",
+  "contains": [
+   "0.45 per mile"
+  ]
+ },
+ {
+  "q": "How many quotes do I need for a 5,000 purchase?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "procurement-policy",
+  "contains": [
+   "three written quotes"
+  ]
+ },
+ {
+  "q": "Where is the fire assembly point?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "office-safety",
+  "contains": [
+   "car park B"
+  ]
+ },
+ {
+  "q": "When is salary paid?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "onboarding-guide",
+  "contains": [
+   "last working day"
+  ]
+ },
+ {
+  "q": "How many days do I have to submit an expense claim?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "travel-expense-policy",
+  "contains": [
+   "30 days"
+  ]
+ },
+ {
+  "q": "What is the liability cap in our customer agreement?",
+  "user": "imran",
+  "kind": "answer",
+  "doc": "customer-service-agreement",
+  "contains": [
+   "100 percent"
+  ]
+ },
+ {
+  "q": "How long does an NDA last?",
+  "user": "imran",
+  "kind": "answer",
+  "doc": "nda-template",
+  "contains": [
+   "3 years"
+  ]
+ },
+ {
+  "q": "What is the salary range for Band C?",
+  "user": "omar",
+  "kind": "answer",
+  "doc": "salary-bands",
+  "contains": [
+   "48,000 to 65,000"
+  ]
+ },
+ {
+  "q": "What is the marketing budget for 2027?",
+  "user": "sara",
+  "kind": "answer",
+  "doc": "budget-2027",
+  "contains": [
+   "180,000"
+  ]
+ },
+ {
+  "q": "What is the dress code?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "not in the documents"
+ },
+ {
+  "q": "Who is the chief executive?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "not in the documents"
+ },
+ {
+  "q": "Does the company offer a pension?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "not in the documents"
+ },
+ {
+  "q": "What is the Wi-Fi password?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "not in the documents"
+ },
+ {
+  "q": "What is the salary range for Band C?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "restricted to HR"
+ },
+ {
+  "q": "What is the marketing budget for 2027?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "restricted to finance"
+ },
+ {
+  "q": "How long does a disciplinary investigation take?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "restricted to HR"
+ }
+]

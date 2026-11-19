@@ -1,0 +1,5 @@
+
+== dev: 27 questions in 0.1s
+  answerable: 20/20 right  (right document first: 20/20; confident but wrong: 0; refused wrongly: 0)
+  not in the documents: 4/4 correctly refused
+  restricted to another group: 3/3 correctly refused;  restricted documents leaked: 0

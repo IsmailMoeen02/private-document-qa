@@ -1,0 +1,218 @@
+[
+ {
+  "q": "What's the annual holiday entitlement for full-time staff?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "22 working days"
+  ]
+ },
+ {
+  "q": "If I'm off sick, when do I have to tell my manager?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "before 10:00"
+  ]
+ },
+ {
+  "q": "How much time off does a new father get?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "4 weeks"
+  ]
+ },
+ {
+  "q": "Is there a money allowance for setting up my home desk?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "400"
+  ]
+ },
+ {
+  "q": "What's the notice period once probation is over?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "employee-handbook",
+  "contains": [
+   "1 month"
+  ]
+ },
+ {
+  "q": "Do I need to change my password regularly?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "it-security-policy",
+  "contains": [
+   "not on a fixed schedule"
+  ]
+ },
+ {
+  "q": "Can I plug a USB stick into my work computer?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "it-security-policy",
+  "contains": [
+   "banned unless approved"
+  ]
+ },
+ {
+  "q": "What should I do with a suspicious email?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "it-security-policy",
+  "contains": [
+   "Report Phishing button"
+  ]
+ },
+ {
+  "q": "For how many years must we hold employment records after someone leaves?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "data-retention-policy",
+  "contains": [
+   "6 years"
+  ]
+ },
+ {
+  "q": "How often do we have fire drills?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "office-safety",
+  "contains": [
+   "twice a year"
+  ]
+ },
+ {
+  "q": "What's the most I can claim for dinner on a trip abroad?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "travel-expense-policy",
+  "contains": [
+   "60 for international"
+  ]
+ },
+ {
+  "q": "Which cabin class do I book for a 7 hour flight?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "travel-expense-policy",
+  "contains": [
+   "Premium economy"
+  ]
+ },
+ {
+  "q": "Who needs to sign off a purchase over 10,000?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "procurement-policy",
+  "contains": [
+   "finance director"
+  ]
+ },
+ {
+  "q": "Where do I collect my laptop on my first day?",
+  "user": "ayesha",
+  "kind": "answer",
+  "doc": "onboarding-guide",
+  "contains": [
+   "IT desk"
+  ]
+ },
+ {
+  "q": "What interest do we charge on overdue invoices?",
+  "user": "imran",
+  "kind": "answer",
+  "doc": "customer-service-agreement",
+  "contains": [
+   "4 percent"
+  ]
+ },
+ {
+  "q": "How soon must the other side return our confidential papers after a request?",
+  "user": "imran",
+  "kind": "answer",
+  "doc": "nda-template",
+  "contains": [
+   "14 days"
+  ]
+ },
+ {
+  "q": "When does a pay rise take effect after the April review?",
+  "user": "omar",
+  "kind": "answer",
+  "doc": "salary-bands",
+  "contains": [
+   "1 May"
+  ]
+ },
+ {
+  "q": "How many new hires does the plan for 2027 allow?",
+  "user": "sara",
+  "kind": "answer",
+  "doc": "budget-2027",
+  "contains": [
+   "9 new roles"
+  ]
+ },
+ {
+  "q": "Is there free parking for employees?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "not in the documents"
+ },
+ {
+  "q": "How much is the pension contribution?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "not in the documents"
+ },
+ {
+  "q": "What are the company's opening hours?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "not in the documents"
+ },
+ {
+  "q": "Which cloud provider do we use?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "not in the documents"
+ },
+ {
+  "q": "What is the bonus cap for an individual?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "restricted to HR"
+ },
+ {
+  "q": "How long do I have to appeal a disciplinary outcome?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "restricted to HR"
+ },
+ {
+  "q": "What is the capital expenditure ceiling?",
+  "user": "omar",
+  "kind": "refuse",
+  "why": "restricted to finance"
+ },
+ {
+  "q": "Which salary band covers 70,000?",
+  "user": "sara",
+  "kind": "refuse",
+  "why": "restricted to HR"
+ },
+ {
+  "q": "What is our liability limit under the customer agreement?",
+  "user": "ayesha",
+  "kind": "refuse",
+  "why": "restricted to legal and finance"
+ }
+]

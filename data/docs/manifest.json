@@ -1,0 +1,87 @@
+[
+ {
+  "file": "employee-handbook.docx",
+  "title": "Employee Handbook",
+  "groups": [
+   "everyone"
+  ]
+ },
+ {
+  "file": "it-security-policy.pdf",
+  "title": "IT Security Policy",
+  "groups": [
+   "everyone"
+  ]
+ },
+ {
+  "file": "data-retention-policy.pdf",
+  "title": "Data Retention Policy",
+  "groups": [
+   "everyone"
+  ]
+ },
+ {
+  "file": "travel-expense-policy.docx",
+  "title": "Travel and Expense Policy",
+  "groups": [
+   "everyone"
+  ]
+ },
+ {
+  "file": "procurement-policy.pdf",
+  "title": "Procurement Policy",
+  "groups": [
+   "everyone"
+  ]
+ },
+ {
+  "file": "onboarding-guide.txt",
+  "title": "Onboarding Guide",
+  "groups": [
+   "everyone"
+  ]
+ },
+ {
+  "file": "office-safety.pdf",
+  "title": "Office Safety Guide",
+  "groups": [
+   "everyone"
+  ]
+ },
+ {
+  "file": "customer-service-agreement.docx",
+  "title": "Customer Service Agreement Template",
+  "groups": [
+   "legal",
+   "finance"
+  ]
+ },
+ {
+  "file": "nda-template.txt",
+  "title": "Mutual NDA Template",
+  "groups": [
+   "legal"
+  ]
+ },
+ {
+  "file": "salary-bands.docx",
+  "title": "Salary Bands and Reviews (HR only)",
+  "groups": [
+   "hr"
+  ]
+ },
+ {
+  "file": "disciplinary-procedure.pdf",
+  "title": "Disciplinary Procedure (HR only)",
+  "groups": [
+   "hr"
+  ]
+ },
+ {
+  "file": "budget-2027.docx",
+  "title": "Budget 2027 (Finance only)",
+  "groups": [
+   "finance"
+  ]
+ }
+]

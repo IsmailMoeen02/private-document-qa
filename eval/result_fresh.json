@@ -1,0 +1,134 @@
+{
+ "name": "fresh",
+ "n": 17,
+ "answer_right": 11,
+ "answer_n": 13,
+ "hit1": 11,
+ "wrong_answer": 0,
+ "refuse_right": 2,
+ "refuse_n": 2,
+ "restricted_right": 2,
+ "restricted_n": 2,
+ "leaks": 0,
+ "rows": [
+  [
+   "How long is the lunch break?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "Do core hours still apply when I work remotely?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "Can I use text message codes for two-step login?",
+   "ayesha",
+   "answer",
+   "refused",
+   false
+  ],
+  [
+   "How long are system backups retained?",
+   "ayesha",
+   "answer",
+   "refused",
+   false
+  ],
+  [
+   "How long do you keep applications from unsuccessful candidates?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "Will I be reimbursed for parking and tolls?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How often is the preferred supplier list reviewed?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "Who wears a green lanyard?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How long do I have to complete the security awareness training?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How long after an accident do I have to report it?",
+   "ayesha",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How long does the confidentiality duty last after the customer agreement ends?",
+   "imran",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "What notice is needed to end the service agreement?",
+   "imran",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "How many working days does a manager have to finish a disciplinary investigation?",
+   "omar",
+   "answer",
+   "answered",
+   true
+  ],
+  [
+   "Does the company provide a company car?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "What is the policy on pets in the office?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "What are the salary bands?",
+   "ayesha",
+   "refuse",
+   "refused",
+   true
+  ],
+  [
+   "What is the term of the mutual NDA?",
+   "sara",
+   "refuse",
+   "refused",
+   true
+  ]
+ ]
+}

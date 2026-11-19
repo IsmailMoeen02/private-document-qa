@@ -1,0 +1,5 @@
+
+== heldout: 27 questions in 0.1s
+  answerable: 15/18 right  (right document first: 16/18; confident but wrong: 1; refused wrongly: 2)
+  not in the documents: 4/4 correctly refused
+  restricted to another group: 5/5 correctly refused;  restricted documents leaked: 0
